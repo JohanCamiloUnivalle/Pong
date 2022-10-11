@@ -18,8 +18,8 @@ public class PanelJuego extends JPanel{
 
 
 
-    Raqueta r1 = new Raqueta(2,200-alturaRaqueta, anchoRaqueta, alturaRaqueta);
-    Raqueta r2 = new Raqueta(780-anchoRaqueta, 200-alturaRaqueta, anchoRaqueta, alturaRaqueta);
+    Raqueta r1 = new Raqueta(2,200-alturaRaqueta, anchoRaqueta, alturaRaqueta,KeyEvent.VK_W,KeyEvent.VK_S);
+    Raqueta r2 = new Raqueta(782-anchoRaqueta, 200-alturaRaqueta, anchoRaqueta, alturaRaqueta,KeyEvent.VK_UP, KeyEvent.VK_DOWN);
     Ball pelota = new Ball(0,0,AnchoPelota,AlturaPelota);
 
     public PanelJuego(){
@@ -43,8 +43,8 @@ public class PanelJuego extends JPanel{
 
     public void refresh(){
         pelota.mover(getBounds());
-        r1.mover(KeyEvent.VK_W,KeyEvent.VK_S);
-        r2.mover(KeyEvent.VK_UP, KeyEvent.VK_DOWN);
+        r1.mover(getBounds());
+        r2.mover(getBounds());
     }
 
     

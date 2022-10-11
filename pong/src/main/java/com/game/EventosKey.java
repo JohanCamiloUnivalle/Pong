@@ -3,10 +3,16 @@ package com.game;
 import java.awt.event.*;
 
 public class EventosKey extends KeyAdapter{
-    static int id; 
+    static int idPress; 
+    static int idReleased;
     @Override
     public void keyPressed(KeyEvent e) {
-        id = e.getKeyCode();
-        System.out.println(id);
+        idPress = e.getKeyCode();
+        System.out.println(idPress);
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+        idReleased = e.getKeyCode();
+        System.out.println("released" + idReleased);
     }
 }
