@@ -13,7 +13,7 @@ public class PanelJuego extends JPanel{
     private int alturaRaqueta = 80, anchoRaqueta = 20;
     private Color ColorFondo = new Color(0,0,0);
     private Color ColorBall = new Color(250,250,250);
-    public int SpeedGame = 10;
+    public int SpeedGame = 8;
     
 
 
@@ -33,6 +33,7 @@ public class PanelJuego extends JPanel{
         g2.setColor(ColorBall);
         draw(g2);
         refresh();
+        VelocidadGame();
     }
 
     public void draw(Graphics2D g){
@@ -42,9 +43,15 @@ public class PanelJuego extends JPanel{
     }
 
     public void refresh(){
-        pelota.mover(getBounds());
+        pelota.mover(getBounds(),r1.getRaqueta(),r2.getRaqueta());
         r1.mover(getBounds());
         r2.mover(getBounds());
+    }
+
+    public void VelocidadGame(){
+        if((pelota.Colision(r1.getRaqueta()) || pelota.Colision(r2.getRaqueta())) && SpeedGame>1){
+            SpeedGame--;
+        }
     }
 
     

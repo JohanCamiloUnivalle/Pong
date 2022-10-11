@@ -22,20 +22,24 @@ public class Ball {
         return new Rectangle2D.Double(x,y,Ancho,Altura);
     }
 
-    public void mover(Rectangle limites){
+    public void mover(Rectangle limites,Rectangle2D r1, Rectangle2D r2){
         x+=dx;
         y+=dy;
-        if(x>limites.getMaxX()){
+        if(x>limites.getMaxX() || Colision(r1)){
             dx= -dx;
         }
         if(y>limites.getMaxY()){
             dy = -dy;
         }
-        if(x < 0){
+        if(x < 0 || Colision(r2)){
             dx = -dx;
         }
         if(y < 0){
             dy = -dy;
         }
     } 
+
+    public boolean Colision(Rectangle2D objeto){
+       return getBall().intersects(objeto);
+    }
 }
